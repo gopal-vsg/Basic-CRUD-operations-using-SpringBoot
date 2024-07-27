@@ -1,6 +1,7 @@
-package com.example.demo.ApiService;
+package com.example.demo.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.example.demo.entity.Product;
 import com.example.demo.repository.ProductRepo;
@@ -18,9 +19,10 @@ public class ProductService {
     public List<Product> findAll(){
         return productrepo.findAll();
     }
-    public Product findById(int id) {
-        return productrepo.findById(id).orElse(null);
+    public Optional<Product> findById(int id) {
+        return productrepo.findById(id);
     }
+
     public Product save(Product product){
         return productrepo.save(product);
     }
