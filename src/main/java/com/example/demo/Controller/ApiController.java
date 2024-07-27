@@ -40,7 +40,7 @@ public class ApiController {
     @PutMapping("/{id}")
     public ResponseEntity<Product> update(@PathVariable int id, @RequestBody Product product) {
         if (productService.findById(id).isPresent()) {
-            product.setId(id); // Ensure the ID is set to update the existing product
+            product.setId(id); 
             Product updatedProduct = productService.save(product);
             return ResponseEntity.ok(updatedProduct);
         }
