@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 import com.example.demo.Service.ProductService;
 
 @RestController
@@ -40,7 +39,7 @@ public class ApiController {
     @PutMapping("/{id}")
     public ResponseEntity<Product> update(@PathVariable int id, @RequestBody Product product) {
         if (productService.findById(id).isPresent()) {
-            product.setId(id); 
+            product.setId(id);
             Product updatedProduct = productService.save(product);
             return ResponseEntity.ok(updatedProduct);
         }
@@ -56,5 +55,4 @@ public class ApiController {
         productService.Delete(id);
         return ResponseEntity.noContent().build();
     }
-
 }
